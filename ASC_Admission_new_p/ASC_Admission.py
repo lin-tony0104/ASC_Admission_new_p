@@ -48,7 +48,7 @@ class window_deque(Deque):
 
 
 
-class ASC_Admission_new_p:
+class ASC_Admission:
     #改寫Deque 加上cache.size , cache.used
     class entry:
         def __init__(self,ID,size):
@@ -63,7 +63,7 @@ class ASC_Admission_new_p:
         self.history=Deque(cache_size)
         
 
-        self.window_size=50
+        self.window_size=10
         self.window=window_deque(cache_size*self.window_size)
 
         
@@ -185,23 +185,23 @@ class ASC_Admission_new_p:
                     self.DEBUG_g4+=1
 
 
-                # admit
-                if self.window.get_freq(O_i)>self.window.get_freq(last_obj)  and  O_i.size<last_obj.size:
+                # # admit
+                # if self.window.get_freq(O_i)>self.window.get_freq(last_obj)  and  O_i.size<last_obj.size:
+                #     self.admit(O_i)
+                #     self.DEBUG_s1+=1
+                # # not admit
+                # elif self.window.get_freq(O_i)<self.window.get_freq(last_obj)  and  O_i.size>last_obj.size:
+                #     self.not_admit(O_i) 
+                #     self.DEBUG_s2+=1
+                # #原始
+                # else: 
+                p=np.exp(-O_i.size/self.c)
+                r=np.random.rand()
+                if p<=r:
+                    self.not_admit(O_i)
+                else:
                     self.admit(O_i)
-                    self.DEBUG_s1+=1
-                # not admit
-                elif self.window.get_freq(O_i)<self.window.get_freq(last_obj)  and  O_i.size>last_obj.size:
-                    self.not_admit(O_i) 
-                    self.DEBUG_s2+=1
-                #原始
-                else: 
-                    p=np.exp(-O_i.size/self.c)
-                    r=np.random.rand()
-                    if p<=r:
-                        self.not_admit(O_i)
-                    else:
-                        self.admit(O_i)
-                    self.DEBUG_s3+=1
+                self.DEBUG_s3+=1
                 
         else: #hit
             self.DEBUG_HitCount+=1
