@@ -59,11 +59,12 @@ class ASC_Admission_new_p:
 
 
     def __init__(self,cache_size,c,delta):
+        np.random.seed(0)
         self.cache=Deque(cache_size)#用來記錄cache.size
         self.history=Deque(cache_size)
         
 
-        self.window_size=50
+        self.window_size=20
         self.window=window_deque(cache_size*self.window_size)
 
         

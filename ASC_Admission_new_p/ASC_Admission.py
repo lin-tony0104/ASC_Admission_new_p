@@ -59,6 +59,7 @@ class ASC_Admission:
 
 
     def __init__(self,cache_size,c,delta):
+        np.random.seed(0)
         self.cache=Deque(cache_size)#用來記錄cache.size
         self.history=Deque(cache_size)
         

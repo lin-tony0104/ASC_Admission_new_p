@@ -84,5 +84,5 @@ def run_ASC_Admission():
 
 
 if __name__=="__main__":
-    run_ASC_Admission()
-    # run_ASC_Admission_new_p()
+    # run_ASC_Admission()
+    run_ASC_Admission_new_p()
