@@ -6,7 +6,7 @@
     * (S3)其餘 : 照原始准入條件(size小於c值准入、size大於c值，根據機率准入)
 
 
-ASC-Admission命中率: 
+ASC-Admission命中率:x  
 其餘設定與ASC-Admission一樣下
 - window大小設為 cache_size*5  時，命中率為:x
 - window大小設為 cache_size*10  時，命中率為:x
