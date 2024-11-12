@@ -70,7 +70,7 @@ def run_ASC_Admission():
 
 
             if not DEBUG_reqCount%1000000:
-                s="ASC_Admission_new_p "\
+                s="ASC_Admission "\
                     +"  cache_size: "+str(cache_size)\
                     +"  req_num:  "+str(DEBUG_reqCount)\
                     +policy.DEBUG()
